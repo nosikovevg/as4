@@ -1,0 +1,36 @@
+---
+- name: Configure webserver with nginx
+  hosts: all
+  become: yes
+
+  tasks:
+  -  name: Ensure nginx is installed
+     package: 
+       name: nginx 
+       update_cache: yes
+  -  name: Copy nginx config file
+     copy:
+       src: ./files/default.conf
+       dest: /etc/nginx/sites-available/default
+  -  name: Enable configuration
+     file:         
+       src: /etc/nginx/sites-available/default
+       dest: /etc/nginx/sites-enabled/default
+       state: link
+  -  name: Copy index.html
+     template: 
+       src: ./files/index.html.j2
+       dest: /var/www/html/index.html
+  -  name: Recursively change ownership of a directory
+     file: 
+       path: /var/www/html/
+       state: directory
+       recurse: yes
+       owner: neo
+       group: neo
+  -  name: Restart nginx
+     service: name=nginx state=restarted
+
+...
+
+
