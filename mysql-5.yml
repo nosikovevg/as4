@@ -1,6 +1,6 @@
 ---
 - name: MySQL
-  hosts: all
+  hosts: sss
   become: yes
   vars:   
      mysql_root_password: password 
@@ -31,7 +31,7 @@
         name: root
         password: 1
         login_user: root
-        login_password: 2
+        login_password: 1
         check_implicit_admin: yes
         host: localhost
         
