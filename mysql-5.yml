@@ -31,8 +31,9 @@
         name: root
         password: 1
         login_user: root
-        login_password: ''
-        host: "localhost"
+        login_password: 2
+        check_implicit_admin: yes
+        host: localhost
         
 
 
