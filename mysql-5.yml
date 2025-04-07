@@ -30,8 +30,9 @@
      mysql_user:
         name: root
         password: 1
+        check_implicit_admin: yes
         host: "localhost"
-        login_unix_socket: /var/run/mysqld/mysqld.sock
+        
 
 
 ...
