@@ -27,7 +27,7 @@
         update_cache: yes
 
   -  name: Set the local root password
-     mysql_user:
+     community.mysql.mysql_user:
         name: root
         password: 1
         login_user: root
