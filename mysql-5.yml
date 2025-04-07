@@ -30,7 +30,8 @@
      mysql_user:
         name: root
         password: 1
-        check_implicit_admin: yes
+        login_user: root
+        login_password: ''
         host: "localhost"
         
 
