@@ -11,7 +11,7 @@
   -  name: stop and disable
      service:
        name: mysql
-       state: stop
+       state: stopped
        enabled: no
 
 
