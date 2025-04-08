@@ -28,11 +28,11 @@
 
   -  name: Set the local root password
      community.mysql.mysql_user:
-        name: root
-        password: 1
-        login_user: root
+        name: 'root'
+        password: '1'
+        login_user: 'root'
         login_password: ''
-        check_implicit_admin: no
+        check_implicit_admin: yes
         login_unix_socket: /var/run/mysqld/mysqld.sock
         
 
