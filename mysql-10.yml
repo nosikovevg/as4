@@ -23,7 +23,7 @@
   -  name: Install pymysql via apt
      apt:
         name: python3-pymysql
-        state: latest
+        state: present
         update_cache: yes
 
   -  name: Set the local root password
