@@ -1,0 +1,35 @@
+---
+- name: MySQL
+  hosts: all
+  become: yes
+  
+
+
+
+  tasks:
+
+  -  name: stop and disable
+     service:
+       name: mysql
+       state: stop
+       enabled: no
+
+
+  -  name: Install pymysql via apt
+     apt:
+       name: python3-pymysql
+       state: absent
+       update_cache: yes
+
+
+  -  name: Install mysql via apt
+     apt: 
+       name: mysql-server
+       state: absent 
+       update_cache: yes
+
+ 
+
+...
+
+
