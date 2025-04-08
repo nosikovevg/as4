@@ -30,10 +30,12 @@
      become: yes
      become_user: root
      community.mysql.mysql_user:
-        name: root
-        password: password
-        login_user: root
+        name: "root"
+        password: "password"
+        login_user: "root"
         login_password: "1"
+        priv: '*.*:ALL'
+        state: present
         check_implicit_admin: yes
         login_unix_socket: /var/run/mysqld/mysqld.sock
         
