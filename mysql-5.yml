@@ -27,11 +27,13 @@
         update_cache: yes
 
   -  name: Set the local root password
+     become: yes
+     become_user: root
      community.mysql.mysql_user:
-        name: 'root'
-        password: '1'
-        login_user: 'root'
-        login_password: 'password'
+        name: root
+        password: 1
+        login_user: root
+        login_password: 1
         check_implicit_admin: yes
         login_unix_socket: /var/run/mysqld/mysqld.sock
         
