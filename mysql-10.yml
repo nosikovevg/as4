@@ -30,10 +30,10 @@
      become: yes
      become_user: root
      community.mysql.mysql_user:
-        name: 'root'
-        password: 'password'
         login_user: 'root'
         login_password: '1'
+        name: 'root'
+        password: 'password'
         priv: '*.*:ALL,GRANT'
         host: 'localhost'
         state: present
