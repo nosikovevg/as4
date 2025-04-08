@@ -15,14 +15,14 @@
        enabled: no
 
 
-  -  name: Install pymysql via apt
+  -  name: De-install pymysql via apt
      apt:
        name: python3-pymysql
        state: absent
        update_cache: yes
 
 
-  -  name: Install mysql via apt
+  -  name: De-install mysql via apt
      apt: 
        name: mysql-server
        state: absent 
