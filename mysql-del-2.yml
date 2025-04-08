@@ -1,0 +1,20 @@
+---
+# remove mysql server 
+- hosts: sss
+  remote_user: root
+  tasks:
+    - name: stop service 
+      shell: /etc/init.d/mysqld stop
+    - name: delete user 
+      user: name=mysql state=absent remove=yes
+    - name: delete
+      file: path={{item}} state=absent
+      with_items: 
+        - /usr/local/mysql
+        - /usr/local/mariadb-10.2.27-linux-x86_64
+        - /etc/init.d/mysqld
+        - /etc/profile.d/mysql.sh
+        - /etc/my.cnf
+        - /data/mysql
+       
+    #run
