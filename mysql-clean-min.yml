@@ -19,11 +19,11 @@
        update_cache: yes
 
 
-  -  name: De-install mysql via apt
-     apt: 
-       name: mysql-server
-       state: absent 
-       update_cache: yes
+#  -  name: De-install mysql via apt
+#     apt: 
+#       name: mysql-server
+#       state: absent 
+#       update_cache: yes
 
 
   -  name: Execute command 2
