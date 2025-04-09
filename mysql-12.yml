@@ -64,3 +64,18 @@
         state: present
         login_user: root
         login_password: "{{root_password}}"
+
+    - name: Enable remote login to mysql
+      lineinfile:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regex: '^bind-address\s*=\s*127.0.0.1'
+        line: 'bind-address = 0.0.0.0'
+        backup: yes
+      notify:
+        - Restart mysql
+
+  handlers:
+    - name: Restart mysql
+      service:
+        name: mysql
+        state: restarted
