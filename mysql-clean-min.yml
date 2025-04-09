@@ -72,15 +72,7 @@
      debug:
        var: command_output.stdout_lines
 
-#---------------------------------------------------------
-  -  name: Execute command 10
-     shell: apt autoremove --purge mysql-server\* mariadb-server\*
-     ignore_errors: yes
-     register: command_output
 
-  -  name: Display command 10 output
-     debug:
-       var: command_output.stdout_lines
 ...
 
 
