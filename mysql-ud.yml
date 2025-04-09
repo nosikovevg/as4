@@ -7,19 +7,19 @@
 
   - name: stop and disable
     service:
-       name: mysql
-       state: stopped
-       enabled: no
+      name: mysql
+      state: stopped
+      enabled: no
   
 
   - name: Udalaem MySQL pakages
     apt:
-       name:
+      name:
          - mysql-server
          - mysql-client
          - python3-mysqldb
          - libmysqlclient-dev
-       state: absent
-       purge: yes
-       autoremove: yes
-    update_cache: yes
+      state: absent
+      purge: yes
+      autoremove: yes
+    
