@@ -5,15 +5,15 @@
 
   tasks:
 
-  -  name: stop and disable
-     service:
+  - name: stop and disable
+    service:
        name: mysql
        state: stopped
        enabled: no
   
 
-  -  name: Udalaem MySQL pakages
-     apt:
+  - name: Udalaem MySQL pakages
+    apt:
        name:
          - mysql-server
          - mysql-client
@@ -22,4 +22,4 @@
        state: absent
        purge: yes
        autoremove: yes
-     update_cache: yes
+    update_cache: yes
