@@ -22,7 +22,8 @@
   -  name: De-install mysql via apt
      apt: 
        name: mysql-server
-       state: absent 
+       state: absent
+       ignore_errors: yes 
        update_cache: yes
 #-----------------зависает--------------------------------
 # -  name: Execute command 1
