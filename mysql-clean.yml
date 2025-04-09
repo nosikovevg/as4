@@ -27,16 +27,24 @@
        name: mysql-server
        state: absent 
        update_cache: yes
+#-----------------зависает--------------------------------
+# -  name: Execute command 1
+#    shell: sudo -i
+#    register: command_output-1
+#
+# -  name: Display command output
+#    debug:
+#      var: command_output-1.stdout_lines
 #---------------------------------------------------------
-  -  name: Execute command 1
-     shell: sudo -i
-     register: command_output-1
+
+  -  name: Execute command 2
+     shell: service mysql stop
+     register: command_output-2
 
   -  name: Display command output
      debug:
-       var: command_output-1.stdout_lines
+       var: command_output-2.stdout_lines
 #---------------------------------------------------------
-
 
 ...
 
