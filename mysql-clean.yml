@@ -46,7 +46,7 @@
        var: command_output.stdout_lines
 #---------------------------------------------------------
   -  name: Execute command 3
-     shell: killall  -- mysql mysqld_safe mysqld apt-get --yes purge mysql-server mysql-client
+     shell: killall -r  mysql mysqld_safe mysqld
      register: command_output
 
   -  name: Display command 3 output
