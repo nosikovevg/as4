@@ -39,11 +39,11 @@
 
   -  name: Execute command 2
      shell: service mysql stop
-     register: command_output-2
+     register: command_output
 
   -  name: Display command output
      debug:
-       var: command_output-2.stdout_lines
+       var: command_output.stdout_lines
 #---------------------------------------------------------
 
 ...
