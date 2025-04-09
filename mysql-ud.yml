@@ -19,7 +19,7 @@
          - mysql-client
          - python3-mysqldb
          - libmysqlclient-dev
-     state: absent
-     purge: yes
-     autoremove: yes
+       state: absent
+       purge: yes
+       autoremove: yes
      update_cache: yes
