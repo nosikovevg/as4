@@ -78,7 +78,7 @@
      ignore_errors: yes
      register: command_output
 
-  -  name: Display command 9 output
+  -  name: Display command 10 output
      debug:
        var: command_output.stdout_lines
 ...
