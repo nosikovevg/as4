@@ -1,0 +1,77 @@
+---
+- name: MySQL
+  hosts: sss
+  become: yes
+
+  tasks:
+
+  -  name: stop and disable
+     service:
+       name: mysql
+       state: stopped
+       enabled: no
+
+
+  -  name: De-install pymysql via apt
+     apt:
+       name: python3-pymysql
+       state: absent
+       update_cache: yes
+
+
+  -  name: De-install mysql via apt
+     apt: 
+       name: mysql-server
+       state: absent 
+       update_cache: yes
+
+
+  -  name: Execute command 2
+     shell: service mysql stop
+     register: command_output
+
+  -  name: Display command 2 output
+     debug:
+       var: command_output.stdout_lines
+
+#---------------------------------------------------------
+  -  name: Execute command 5
+     shell: apt-get --yes autoremove --purge
+     ignore_errors: yes
+     register: command_output
+
+  -  name: Display command 5 output
+     debug:
+       var: command_output.stdout_lines
+#---------------------------------------------------------
+  -  name: Execute command 6
+     shell: apt-get autoclean
+     ignore_errors: yes
+     register: command_output
+
+  -  name: Display command 6 output
+     debug:
+       var: command_output.stdout_lines
+#---------------------------------------------------------
+  -  name: Execute command 7
+     shell: deluser --remove-home mysql
+     ignore_errors: yes
+     register: command_output
+
+  -  name: Display command 7 output
+     debug:
+       var: command_output.stdout_lines
+
+#---------------------------------------------------------
+  -  name: Execute command 9
+     shell: rm -rf /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld /etc/mysql /var/lib/mysql /var/log/mysql* /var/log/upstart/mysql.log* /var/run/mysqld
+     ignore_errors: yes
+     register: command_output
+
+  -  name: Display command 9 output
+     debug:
+       var: command_output.stdout_lines
+
+...
+
+
