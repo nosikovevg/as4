@@ -1,10 +1,7 @@
 ---
 - name: MySQL
-  hosts: all
+  hosts: sss
   become: yes
-  
-
-
 
   tasks:
 
