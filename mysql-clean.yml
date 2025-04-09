@@ -47,12 +47,22 @@
 #---------------------------------------------------------
   -  name: Execute command 3
      shell: killall -r  mysql mysqld_safe mysqld
+     ignore_errors: yes
      register: command_output
+
 
   -  name: Display command 3 output
      debug:
        var: command_output.stdout_lines
 #---------------------------------------------------------
+  -  name: Execute command 4
+     shell: apt-get --yes purge mysql-server mysql-clien
+     ignore_errors: yes
+     register: command_output
+
+  -  name: Display command 4 output
+     debug:
+       var: command_output.stdout_lines
 ...
 
 
