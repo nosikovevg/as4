@@ -36,9 +36,8 @@
 
     - name: Link folder
       file:
-        src: /etc/nginx/sites-available/truruk
+        src: /etc/nginx/sites-available/truruky
         dest: /etc/nginx/sites-enabled/truruky
-        remote_src: yes
         state: link
 
     - name: Reload nginx
