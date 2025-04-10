@@ -1,5 +1,5 @@
 ---
-- name: setup php
+- name: copy files
   become: yes
   become_user: root
   hosts: sss
@@ -20,8 +20,8 @@
 
     - name: Copy php vars_files
       copy:
-        src: files/cucu.txt
-        dest: /var/www/trur/cucu.txt
+        src: files/truruky/cucu2.txt
+        dest: /var/www/trur/cucu2.txt
         owner: root
         group: root
         mode: 0777
