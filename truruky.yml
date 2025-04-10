@@ -1,0 +1,20 @@
+---
+- name: setup php
+  become: yes
+  hosts: sss
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    
+    - name: Copy php vars_files
+      copy:
+        src: files/truruky/tphp/
+        dest: /var/www/trur/
+        owner: neo
+        group: neo
+        mode: 0644
