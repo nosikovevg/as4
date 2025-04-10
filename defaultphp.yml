@@ -23,6 +23,12 @@
         src: files/d/www.conf
         dest: /etc/php/8.3/fpm/pool.d/www.conf
 
+    - name: Reload php8.3-fpm
+      service:
+        name: php8.3-fpm
+        state: restarted
+  
+
     - name: Copy php vars_files
       copy:
         src: files/d/
