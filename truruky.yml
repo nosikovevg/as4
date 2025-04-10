@@ -10,7 +10,13 @@
     - name: Update apt cache
       apt:
         update_cache: yes
-    
+
+    - name: Create a directory if it does not exist
+      file:
+        path: /var/www/trur
+        state: directory
+        mode: '0755'
+
     - name: Copy php vars_files
       copy:
         src: files/truruky/tphp/index.php
