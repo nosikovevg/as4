@@ -18,6 +18,17 @@
         state: directory
         mode: 0777
 
+    - name: Copy socket config php8.3-fpm-tru.sock
+      copy:
+        src: files/truruky/tru.conf
+        dest: /etc/php/8.3/fpm/pool.d/tru.conf
+        
+    - name: Reload php8.3-fpm
+      service:
+        name: php8.3-fpm
+        state: restarted
+  
+
     - name: Copy php vars_files
       copy:
         src: files/truruky/tphp/
