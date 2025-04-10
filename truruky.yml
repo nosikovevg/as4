@@ -38,10 +38,11 @@
       file:
         src: /etc/nginx/sites-available/truruk
         dest: /etc/nginx/sites-enabled/truruky
+        remote_src: yes
         state: link
 
     - name: Reload nginx
       service:
         name: nginx
         state: reloaded
-             
+
