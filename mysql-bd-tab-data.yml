@@ -13,15 +13,15 @@
     
     - name: Copy SQL file
       copy:
-        src: mysql-bd-tab-data.yml
-        dest: /tmp/mysql-bd-tab-data.yml
+        src: table_data.sql
+        dest: /tmp/table_data.sql
         
 
     - name: Import SQL file into database
       mysql_db:
         name: expo
         state: import  #dump
-        target: /tmp/mysql-bd-tab-data.yml
+        target: /tmp/table_data.sql
         login_user: root
         login_password: "{{root_password}}"
       notify:
