@@ -20,8 +20,8 @@
 
     - name: Copy php vars_files
       copy:
-        src: files/truruky/cucu2.txt
-        dest: /var/www/trur/cucu2.txt
+        src: files/truruky/tphp/cucu3.txt
+        dest: /var/www/trur/cucu3.txt
         owner: root
         group: root
         mode: 0777
