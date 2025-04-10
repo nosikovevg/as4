@@ -13,7 +13,7 @@
     
     - name: Copy php vars_files
       copy:
-        src: ./files/truruky/tphp/index.php
+        src: files/truruky/tphp/index.php
         dest: /var/www/trur/
         owner: neo
         group: neo
