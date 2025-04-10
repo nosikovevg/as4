@@ -22,6 +22,26 @@
       copy:
         src: files/truruky/tphp/index.php
         dest: /var/www/trur/index.php
-        owner: root
-        group: root
+        owner: neo
+        group: neo
         mode: 0777
+
+    - name: Copy nginx confif file for truruky
+      copy:
+        src: files/truruky/truruky
+        dest: /etc/nginx/sites-available/truruky
+        owner: neo
+        group: neo
+        mode: 0777
+
+    - name: Link folder
+      file:
+        src: /etc/nginx/sites-available/truruk
+        dest: /etc/nginx/sites-enabled/truruky
+        state: link
+
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded
+             
