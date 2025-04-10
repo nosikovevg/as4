@@ -1,5 +1,5 @@
 ---
-- name: setup php
+- name: copy files
   become: yes
   become_user: root
   hosts: sss
