@@ -21,4 +21,6 @@
       copy:
         src: files/truruky/tphp/index.php
         dest: /var/www/trur/index.php
+        owner: neo
+        group: neo
         mode: 0777
