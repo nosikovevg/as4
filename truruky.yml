@@ -1,6 +1,7 @@
 ---
 - name: setup php
   become: yes
+  become_user: root
   hosts: sss
 
   vars_files:
