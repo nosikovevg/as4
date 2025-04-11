@@ -70,4 +70,11 @@
         src: /tmp/phpMyAdmin-5.2.2-all-languages/.
         dest: /var/www/default/phpmyadmin
         remote_src: yes
+#---------------------------------------------------------
+
+    - name: Copy config from sample
+      copy:
+        src: /var/www/default/phpmyadmin/config.sample.inc.php
+        dest: /var/www/default/phpmyadmin/config.inc.php
+        remote_src: yes
 
