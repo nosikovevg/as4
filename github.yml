@@ -2,7 +2,7 @@
 - name: copy files
   become: yes
   become_user: root
-  hosts: sss
+  hosts: all
 
   vars_files:
     - vars.yml
