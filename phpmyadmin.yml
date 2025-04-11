@@ -85,5 +85,5 @@
         path: /var/www/default/phpmyadmin
         owner: www-data
         group: www-data
+        recurse: yes
 
-        
