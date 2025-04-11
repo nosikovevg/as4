@@ -12,7 +12,7 @@
       apt:
         update_cache: yes
 
-    - name: Execute command 5
+    - name: Execute command cd
       shell: cd /tmp
    
     - name: download  
@@ -20,4 +20,13 @@
         url: https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.zip
         dest: /tmp/
         mode: 0755
+    - name: install unzip
+      apt:
+        name: unzip
+        state: latest
+
+    - name: unzip
+      shell: unzip phpMyAdmin-5.2.2-all-languages.zip
+
+      
       
