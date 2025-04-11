@@ -67,7 +67,7 @@
 
     - name: Copy files phpmyadmin
       copy:
-        src: /tmp/phpMyAdmin-5.2.2-all-languages
+        src: /tmp/phpMyAdmin-5.2.2-all-languages/*
         dest: /var/www/default/phpmyadmin
         remote_src: yes
 
