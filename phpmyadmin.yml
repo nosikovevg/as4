@@ -26,7 +26,7 @@
         state: latest
 
     - name: unzip
-      shell: unzip phpMyAdmin-5.2.2-all-languages.zip
+      shell: unzip /tmp/phpMyAdmin-5.2.2-all-languages.zip
 
-      
+
       
