@@ -19,16 +19,29 @@
         path: /var/www/dexp
         state: directory
         mode: 0777
+
+
+#---------------------------------------------------------
+    - name: Copy ssh key
+      copy:
+        src: /home/neo/.ssh/id_ed25519_1
+        dest: /home/neo/.ssh/id_ed25519_1
+
+
+
 #---------------------------------------------------------
 
     - name: Copy files from github
       git:
         repo: git@github.com:nosikovevg/tphp.git
         dest: /var/www/dexp/
+        key_file: /home/neo/.ssh/id_ed25519_1
+        accept_hostkey: yes
+        force: yes   
+      
       #  clone: yes
-        update: no
-      #  become: yes
-      #  become_user: www-data
+      #  update: no
+      
 #---------------------------------------------------------
 
 
