@@ -29,6 +29,10 @@
         src: /home/neo/.ssh/id_ed25519_1
         dest: /home/neo/.ssh/id_ed25519_1
 
+    - name: Correct SSH deploy key permissions
+      file:
+        dest: /home/neo/.ssh/id_ed25519_1
+        mode: 0600
 
 
 #---------------------------------------------------------
