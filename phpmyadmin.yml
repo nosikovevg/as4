@@ -1,0 +1,23 @@
+---
+- name: copy files
+  become: yes
+  become_user: root
+  hosts: sss
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Execute command 5
+      shell: cd /tmp
+   
+    - name: download  
+      get_url:
+        url: https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.zip
+        dest: /tmp/
+        mode: 0755
+      
