@@ -25,8 +25,10 @@
       git:
         repo: git@github.com:nosikovevg/tphp.git
         dest: /var/www/dexp/
-        clone: yes
-        update: yes
+      #  clone: yes
+        update: no
+        sudo: yes
+        sudo_user: www-data
 #---------------------------------------------------------
 
 
