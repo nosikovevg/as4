@@ -27,6 +27,13 @@
 
     - name: unzip
       shell: unzip /tmp/phpMyAdmin-5.2.2-all-languages.zip
+#---------------------------------------------------------
+    - name: Execute command pwd
+      shell: pwd
+      register: command_output
 
+    - name: Display command 5 output
+      debug:
+        var: command_output.stdout_lines
+#---------------------------------------------------------      
 
-      
