@@ -7,7 +7,10 @@
   vars_files:
     - vars.yml
 
-
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
 
 #---------------------------------------------------------
     - name: Execute command pwd1
