@@ -49,6 +49,14 @@
 #    - name: unzip
 #      shell: unzip /tmp/phpMyAdmin-5.2.2-all-languages.zip
 #---------------------------------------------------------
+
+    - name: Unarchive a file that is already on the remote machine
+      ansible.builtin.unarchive:
+      src: /tmp/phpMyAdmin-5.2.2-all-languages.zip
+      dest: /tmp
+      remote_src: yes
+
+#---------------------------------------------------------
     - name: Execute command pwd3
       shell: pwd
       register: command_output
