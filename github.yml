@@ -26,8 +26,8 @@
 
     - name: Copy ssh key
       copy:
-        src: /home/neo/.ssh/id_ed25519
-        dest: /home/neo/.ssh/id_ed25519
+        src: /home/neo/.ssh/id_ed25519_1
+        dest: /home/neo/.ssh/id_ed25519_1
 
 
 
@@ -37,7 +37,7 @@
       git:
         repo: git@github.com:nosikovevg/tphp.git
         dest: /var/www/dexp/
-        key_file: /home/neo/.ssh/id_ed25519
+        key_file: /home/neo/.ssh/id_ed25519_1
         accept_hostkey: yes
         force: yes   
       
