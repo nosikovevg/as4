@@ -27,8 +27,8 @@
         dest: /var/www/dexp/
       #  clone: yes
         update: no
-        become: yes
-        become_user: www-data
+      #  become: yes
+      #  become_user: www-data
 #---------------------------------------------------------
 
 
