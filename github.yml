@@ -1,0 +1,33 @@
+---
+- name: copy files
+  become: yes
+  become_user: root
+  hosts: sss
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    
+
+    - name: Create a directory if it does not exist
+      file:
+        path: /var/www/dexp
+        state: directory
+        mode: 0777
+#---------------------------------------------------------
+
+    - name: Copy files from github
+      git:
+        repo: git@github.com:nosikovevg/tphp.git
+        dest: /var/www/dexp/
+        clone: yes
+        update: yes
+#---------------------------------------------------------
+
+
+
