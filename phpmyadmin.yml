@@ -12,27 +12,48 @@
       apt:
         update_cache: yes
 
+#---------------------------------------------------------
+    - name: Execute command pwd1
+      shell: pwd
+      register: command_output
+
+    - name: Display command pwd1 output
+      debug:
+        var: command_output.stdout_lines
+#--------------------------------------------------------- 
+
     - name: Execute command cd
       shell: cd /tmp
+#---------------------------------------------------------
+    - name: Execute command pwd2
+      shell: pwd
+      register: command_output
+
+    - name: Display command pwd2 output
+      debug:
+        var: command_output.stdout_lines
+#--------------------------------------------------------- 
    
     - name: download  
       get_url:
         url: https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.zip
         dest: /tmp/
         mode: 0755
-    - name: install unzip
-      apt:
-        name: unzip
-        state: latest
 
-    - name: unzip
-      shell: unzip /tmp/phpMyAdmin-5.2.2-all-languages.zip
+
+#    - name: install unzip
+#      apt:
+#        name: unzip
+#        state: latest
+
+#    - name: unzip
+#      shell: unzip /tmp/phpMyAdmin-5.2.2-all-languages.zip
 #---------------------------------------------------------
-    - name: Execute command pwd
+    - name: Execute command pwd3
       shell: pwd
       register: command_output
 
-    - name: Display command 5 output
+    - name: Display command pwd3 output
       debug:
         var: command_output.stdout_lines
 #---------------------------------------------------------      
