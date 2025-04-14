@@ -40,7 +40,7 @@
         force: yes   
       
         clone: yes
-        update: yes
+        update: no
       
 #---------------------------------------------------------
     - name: Recursively remove directory
