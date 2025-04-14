@@ -1,0 +1,79 @@
+---
+- name: create site truruky
+  become: yes
+  become_user: root
+  hosts: sss
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Create a directory if it does not exist
+      file:
+        path: /var/www/trur
+        state: directory
+        mode: 0777
+
+    - name: Copy socket config php8.3-fpm-tru.sock
+      copy:
+        src: files/truruky/tru.conf
+        dest: /etc/php/8.3/fpm/pool.d/tru.conf
+        
+    - name: Reload php8.3-fpm
+      service:
+        name: php8.3-fpm
+        state: restarted
+  
+
+#---------------------------------------------------------
+
+    - name: Copy files from github
+      git:
+        repo: git@github.com:nosikovevg/tphp.git
+        dest: /var/www/trur/
+        key_file: /home/neo/.ssh/id_ed25519_1
+        accept_hostkey: yes
+        force: yes   
+      
+      #  clone: yes
+      #  update: no
+      
+#---------------------------------------------------------
+    - name: Recursively remove directory
+      file:
+        path: /var/www/trur/.git/
+        state: absent
+
+#---------------------------------------------------------
+    - name: Recursively change ownership of a directory
+      file:
+        path: /var/www/trur/
+        state: directory
+        recurse: yes
+        owner: neo
+        group: neo        
+
+#---------------------------------------------------------
+    - name: Copy nginx confif file for truruky
+      copy:
+        src: files/truruky/truruky
+        dest: /etc/nginx/sites-available/truruky
+        owner: neo
+        group: neo
+        mode: 0777
+
+    - name: Link folder
+      file:
+        src: /etc/nginx/sites-available/truruky
+        dest: /etc/nginx/sites-enabled/truruky
+        state: link
+
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded
+
