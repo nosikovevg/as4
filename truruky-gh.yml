@@ -39,9 +39,9 @@
         accept_hostkey: yes
         force: yes   
         
-        recursive: yes
-        clone: yes
-        update: no
+        recursive: no
+        clone: no
+        update: yes
       
 #---------------------------------------------------------
     - name: Recursively remove directory
