@@ -38,9 +38,10 @@
         key_file: /home/neo/.ssh/id_ed25519_1
         accept_hostkey: yes
         force: yes   
+        
         recursive: no
-        #clone: no
-        #update: no
+        clone: no
+        update: no
       
 #---------------------------------------------------------
     - name: Recursively remove directory
