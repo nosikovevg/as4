@@ -39,8 +39,8 @@
         accept_hostkey: yes
         force: yes   
         
-        recursive: yes
-        clone: no
+        recursive: no
+        clone: yes
         update: no
       
 #---------------------------------------------------------
