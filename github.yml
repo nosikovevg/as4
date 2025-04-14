@@ -50,5 +50,8 @@
       
 #---------------------------------------------------------
 
-
+    - name: Recursively remove directory
+      file:
+        path: /var/www/dexp/.git/
+        state: absent
 
