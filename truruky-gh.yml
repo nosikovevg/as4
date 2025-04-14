@@ -39,7 +39,7 @@
         accept_hostkey: yes
         force: yes   
       
-      #  clone: yes
+        clone: yes
         update: yes
       
 #---------------------------------------------------------
