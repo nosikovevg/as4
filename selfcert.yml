@@ -43,3 +43,9 @@
         path: /etc/nginx/sites-available/truruky
         block: "{{ lookup('ansible.builtin.file', './files/truruky/new_frag') }}"
         marker: "## {mark} ANSIBLE MANAGED BLOCK"
+
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded
+    
