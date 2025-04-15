@@ -44,6 +44,12 @@
         block: "{{ lookup('ansible.builtin.file', './files/truruky/new_frag') }}"
         marker: "## {mark} ANSIBLE MANAGED BLOCK"
 
+    - name: adding a line
+      lineinfile:
+        path: /etc/nginx/sites-available/truruky
+        insertafter: '^listen 80;'
+        line: 'return 301 https://truruki.ru$request_uri;'
+
     - name: Generate Diffie-Hellman parameters with the default size (4096 bits)
       community.crypto.openssl_dhparam:
         path: /etc/nginx/dhparam.pem
