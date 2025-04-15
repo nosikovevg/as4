@@ -38,3 +38,8 @@
         src: files/snippets/.
         dest: /etc/nginx/snippets/
    
+    - name: Insert/Update configuration using a local file
+      ansible.builtin.blockinfile:
+        path: /etc/nginx/sites-available/truruky
+        block: "{{ lookup('ansible.builtin.file', './files/truruky/new_frag') }}"
+        marker: "## {mark} ANSIBLE MANAGED BLOCK"

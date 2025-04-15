@@ -1,0 +1,17 @@
+server {
+listen 443 ssl;
+listen [::]:443 ssl;
+include snippets/self-signed.conf;
+
+include snippets/ssl-params.conf;
+server_name truruky.ru www.truruky.ru;
+root /var/www/trur;
+index index.php index.html index.htm index.nginx-debian.html;
+location / {
+          try_files $uri $uri/ =404;
+       }
+     location ~* \.php$ {
+       include snippets/fastcgi-php.conf;            
+       fastcgi_pass unix:/var/run/php/php8.3-fpm-tru.sock;
+        }
+}
