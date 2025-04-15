@@ -37,5 +37,4 @@
       copy:
         src: files/snippets/.
         dest: /etc/nginx/snippets/
-
-    
+   
