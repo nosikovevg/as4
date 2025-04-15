@@ -33,5 +33,9 @@
          provider: selfsigned
 
 
+    - name: Copy ssl snippets
+      copy:
+        src: files/snippets/.
+        dest: /etc/nginx/snippets/
 
     
