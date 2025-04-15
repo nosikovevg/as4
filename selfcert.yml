@@ -1,0 +1,37 @@
+---
+- name: create self sertificat
+  become: yes
+  become_user: root
+  hosts: sss
+
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: create private key
+      openssl_privatekey:
+         path: /etc/ssl/mycert.key
+         size: 2048
+    
+    - name: create Certificate Signing Request (csr)
+      openssl_csr:
+         path: /etc/ssl/mycert.csr
+         privatekey_path: /etc/ssl/mycert.key
+         country_name: RU
+         locality_name: Russian Federation
+         organization_name: truruky
+         email_address: master@truruky.ru
+         common_name: truruky.ru
+         
+    - name: Generate a Self Signed OpenSSL certificate
+      community.crypto.x509_certificate:
+         path: /etc/ssl/mycert.crt
+         privatekey_path: /etc/ssl/mycert.key
+         csr_path: /etc/ssl/mycert.csr
+         provider: selfsigned
+
+
+
+    
